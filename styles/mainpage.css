@@ -1,0 +1,22 @@
+/*
+* {
+}
+*/
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.main-page {
+
+    background-image: url(../images/mainpage.jpg);
+    background-size: cover;
+    /*
+    padding: 25% 50%;
+    */
+    margin: 0 auto;
+    height: 250px;
+    text-align: center;
+}
