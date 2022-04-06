@@ -10,13 +10,30 @@
 }
 
 .main-page {
-
+ /*
     background-image: url(../images/mainpage.jpg);
     background-size: cover;
-    /*
+   
     padding: 25% 50%;
-    */
+    
     margin: 0 auto;
     height: 250px;
+    */
     text-align: center;
+}
+
+.carousel{
+    width: 15%;
+    margin: auto;
+    height: auto;
+   
+}
+
+.bt-search{
+    padding-top: 5%;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%)
+  
 }
