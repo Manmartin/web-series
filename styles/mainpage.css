@@ -37,3 +37,12 @@
   transform: translateX(-50%)
   
 }
+.logo {
+    height: 60px;
+    width: auto;
+    display: inline-block;
+}
+
+h2{
+    text-align: center;
+}
