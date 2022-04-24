@@ -2,7 +2,7 @@ const token = localStorage.getItem("token");
 async function sendData() {
   try {
     const response = await fetch(
-      "http://localhost:1337/api/series?populate=imagen"
+      "https://web-series-eoi.herokuapp.com/api/series?populate=image"
     );
 
     if (!response.ok) {
@@ -32,10 +32,9 @@ function printData(data) {
     const serieImg = document.getElementById("image");
     serieName.textContent = seriesData.attributes.name;
     serieAirDating.textContent = seriesData.attributes.air_date;
-    serieFinish.textContent = seriesData.attributes.finished;
+    serieFinish.textContent = seriesData.attributes.finished ? "Terminada" : "En emision";
     serieRating.textContent = seriesData.attributes.rating + "/5";
-    serieImg.src =
-      "http://localhost:1337" + seriesData.attributes.image.data.attributes.url;
+    serieImg.src = "https://web-series-eoi.herokuapp.com" + seriesData.attributes.image.data[0].attributes.formats.medium.url;
 
     lista.appendChild(serieBox);
   }
