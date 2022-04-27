@@ -2,7 +2,7 @@ const token = localStorage.getItem("token");
 async function sendData() {
   try {
     const response = await fetch(
-      "https://web-series-eoi.herokuapp.com/api/series?populate=image"
+      "http://localhost:1337/api/series?populate=image"
     );
 
     if (!response.ok) {
@@ -36,7 +36,8 @@ function printData(data) {
     serieAirDating.textContent = seriesData.attributes.air_date;
     serieFinish.textContent = seriesData.attributes.finished ? "Terminada" : "En emision";
     serieRating.textContent = seriesData.attributes.rating + "/5";
-    serieImg.src = "https://web-series-eoi.herokuapp.com" + seriesData.attributes.image.data[0].attributes.formats.medium.url;
+    console.log()
+    serieImg.src = "http://localhost:1337" + seriesData.attributes.image.data.attributes.url;
 
     serieBox.appendChild(serieName);
     serieBox.appendChild(serieAirDating);

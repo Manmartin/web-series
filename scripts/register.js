@@ -14,7 +14,7 @@ async function sendData(form) {
         const formData = new FormData(form)
         const queryString = new URLSearchParams(formData).toString()
 
-        makeRequest('https://web-series-eoi.herokuapp.com/api/auth/local/register', "POST", queryString, { "Content-Type" : "application/x-www-form-urlencoded" ,}, doLogin)
+        makeRequest('http://localhost:1337/api/auth/local/register', "POST", queryString, { "Content-Type" : "application/x-www-form-urlencoded" ,}, doLogin)
     } catch (error) {
         console.log(error)
     }
