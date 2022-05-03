@@ -1,73 +1,49 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/vnd.microsoft.icon"
-      href="images/favicon.ico"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <title>Inicia sesión</title>
-  </head>
-  <body>
-    <h2>Inicia sesión</h2>
-    <form>
-        <!-- 
-            <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    -->
-       
-    
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Inicia sesión</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="styles/login.css">
+<link
+rel="icon"
+type="image/vnd.microsoft.icon"
+href="images/favicon.ico"
+/>
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+rel="stylesheet"
+integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+crossorigin="anonymous"
+/>
+</head>
+<body>
+
+<div id="login-form-wrap">
+  <h2>Inicia Sesión</h2>
+  <form id="login-form">
     <form id="form">
       <div class="form-floating mb-3">
-        <input
-          name="identifier"
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label for="floatingInput">Dirección Email</label>
+        <input name="identifier" type="text" class="form-control"  placeholder="name@example.com" required/>
+        <label for="floatingInput">Email</label>
       </div>
-      <div class="form-floating">
-        <input
-          name="password"
-          type="password"
-          class="form-control"
-          id="floatingPassword"
-          placeholder="Password"
-        />
-        <label for="floatingPassword">Contraseña</label>
-        <button type="submit" class="btn btn-outline-primary">Accede</button>
+      <div class="form-floating mb-3">
+        <input name="password" type="password" class="form-control"  placeholder="name@example.com" required/>
+        <label for="floatingInput">Contraseña</label>
       </div>
-    </form>
-    <script src="scripts/token.js"></script>
-    <script src="scripts/login.js" type="module"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <p>
+    <input type="submit" id="login" value="Entrar">
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p>¿No tienes cuenta? <a href="register.html">Registrate</a><p>
+  </div>
+</div>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+crossorigin="anonymous"
+></script>
+<script src="scripts/login.js" type="module"></script>
+</body>
 </html>
