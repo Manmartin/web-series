@@ -2,8 +2,8 @@ import { makeRequest } from "./requests.js"
 
 checkToken();
 
-const form = document.getElementById('form')
-form.addEventListener ('submit', (e) => {
+const form = document.getElementById('login-form')
+form.addEventListener('submit', (e) => {
     e.preventDefault()
     sendData(form)
 })
@@ -13,7 +13,6 @@ async function sendData(form) {
         const formData = new FormData(form);
         const queryString = new URLSearchParams(formData).toString()
         
-        console.log(queryString);
         await makeRequest('http://localhost:1337/api/auth/local', 'POST', queryString,  {"Content-Type" : "application/x-www-form-urlencoded" ,}, doLogin);
     } catch (error) {
         console.log(error)
