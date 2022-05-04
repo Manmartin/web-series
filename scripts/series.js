@@ -48,10 +48,11 @@ function printData(data) {
     serieFinish.textContent = seriesData.attributes.finished
       ? "Terminada"
       : "En emision";
-    serieRating.textContent = seriesData.attributes.rating + "/5";
+    serieRating.textContent = seriesData.attributes.rating + "/10";
     console.log();
     serieImg.src =
-      "http://localhost:1337" + seriesData.attributes.image.data.attributes.url;
+      "http://localhost:1337" +
+      seriesData.attributes.image.data.attributes.formats.thumbnail.url;
 
     serieBox.appendChild(serieName);
     serieBox.appendChild(serieAirDating);
@@ -64,27 +65,24 @@ function printData(data) {
 }
 function doLogout() {
   localStorage.clear();
-  window.location.href = "index.html";
+  redirect("index.html");
 }
 function changeAccesButton() {
-  if (token) {
-    const logout = document.getElementById("cerrarsesion");
-    logout.textContent = "Cerrar sesión";
-    logout.addEventListener(`click`, (e) => {
-      doLogout();
-    });
-  } else {
-    const logout = document.getElementById("cerrarsesion");
-    logout.textContent = "Acceder";
-    logout.addEventListener(`click`, (e) => {
-      window.location.href = "index.html";
-      return false;
-    });
-  }
+  const logout = document.getElementById("cerrarsesion");
+  logout.textContent = "Cerrar sesión";
+  logout.addEventListener(`click`, (e) => {
+    doLogout();
+  });
+}
+
+function redirect(url) {
+  window.location.href = url;
 }
 
 sendData();
 if (token) {
   getUser();
+} else {
+  redirect("index.html");
 }
 changeAccesButton();
