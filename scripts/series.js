@@ -18,13 +18,15 @@ async function sendData() {
   }
 }
 
-async function getUser(data) {
+async function getUser() {
   const user = document.getElementById("username");
   const response = await fetch("http://localhost:1337/api/users/me", {
     method: "GET",
-    headers: { Authorization: `Bearer: ${token}` },
+    headers: { Authorization: `Bearer ${token}` },
+    redirect: "follow",
   });
-  user.textContent = username;
+  const userName = await response.json();
+  user.textContent = userName.username;
 }
 
 function printData(data) {
@@ -60,5 +62,29 @@ function printData(data) {
     lista.appendChild(serieBox);
   }
 }
+function doLogout() {
+  localStorage.clear();
+  window.location.href = "index.html";
+}
+function changeAccesButton() {
+  if (token) {
+    const logout = document.getElementById("cerrarsesion");
+    logout.textContent = "Cerrar sesión";
+    logout.addEventListener(`click`, (e) => {
+      doLogout();
+    });
+  } else {
+    const logout = document.getElementById("cerrarsesion");
+    logout.textContent = "Acceder";
+    logout.addEventListener(`click`, (e) => {
+      window.location.href = "index.html";
+      return false;
+    });
+  }
+}
 
 sendData();
+if (token) {
+  getUser();
+}
+changeAccesButton();
