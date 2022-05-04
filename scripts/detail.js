@@ -2,7 +2,7 @@ const token = localStorage.getItem("token");
 async function sendData() {
   try {
     const response = await fetch(
-      "http://localhost:1337/api/series?populate=image"
+      "https://web-series-eoi.herokuapp.com/api/series?populate=image"
     );
 
     if (!response.ok) {
@@ -16,15 +16,6 @@ async function sendData() {
   } catch (error) {
     console.log(error);
   }
-}
-
-async function getUser(data) {
-  const user = document.getElementById("username");
-  const response = await fetch("http://localhost:1337/api/users/me", {
-    method: "GET",
-    headers: { Authorization: `Bearer: ${token}` },
-  });
-  user.textContent = username;
 }
 
 function printData(data) {
@@ -47,9 +38,9 @@ function printData(data) {
       ? "Terminada"
       : "En emision";
     serieRating.textContent = seriesData.attributes.rating + "/5";
-    console.log();
     serieImg.src =
-      "http://localhost:1337" + seriesData.attributes.image.data.attributes.url;
+      "https://web-series-eoi.herokuapp.com" +
+      seriesData.attributes.image.data[0].attributes.formats.medium.url;
 
     serieBox.appendChild(serieName);
     serieBox.appendChild(serieAirDating);

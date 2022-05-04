@@ -47,8 +47,20 @@ h2{
     text-align: center;
 }
 
-/*detail*/
-
-*{
+/*aboutus.html*/
+.tittle_about{
     text-align: center;
 }
+.about{
+    text-align: center;
+}
+.box_about{
+    flex-wrap: wrap;
+}
+
+/*series.html*/
+.serieBox img{
+    height: 200px;
+    width: 200px;
+}
+

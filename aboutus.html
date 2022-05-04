@@ -10,8 +10,7 @@
       type="image/vnd.microsoft.icon"
       href="images/favicon.ico"
     />
-    <link rel="stylesheet" href="styles/mainpage.css" />
-    <link rel="stylesheet" href="styles/series.css" />
+    <link rel="stylesheet" href="styles/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -53,7 +52,7 @@
             />
           </form>
 
-          <li class="nav-item dropdown">
+          <div class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -70,25 +69,25 @@
               <li><hr class="dropdown-divider" /></li>
               <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
             </ul>
-          </li>
+          </div>
         </div>
       </div>
     </nav>
     <h2>Sobre nosotros</h2>
-    <div>
+    <div class="box_about">
       <div>
-        <h4>Equipo</h4>
-        <p>
+        <h4 class="tittle_about">Equipo</h4>
+        <p class="about">
           Esta página ha sido creada como proyecto final del Curso de
           programación para principiantes de la EOI por los alumnos Tatiana
           Arteaga y Manuel Martín.
         </p>
       </div>
       <div>
-        <h4>Historia</h4>
-        <p>
+        <h4 class="tittle_about">Historia</h4>
+        <p class="about">
           Series Manta es un foro creado en 2022 para que usuarios del mundo
-          puedan encontrar series y comentarlas con más usuarios del mundo. Tan
+          puedan encontrar series y comentarlas con más usuarios del mundo. </br>Tan
           sólo tienes que buscar la serie sobre la que quieres hablar, podrás
           guardarla en tus favoritos, hacer comentarios sobre ella y ¡Qué
           comience la diversión!
@@ -137,5 +136,11 @@
         Series Manta 2022 by: Manuel Martin y Tatiana Arteaga
       </div>
     </footer>
+    <script src="scripts/token.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
