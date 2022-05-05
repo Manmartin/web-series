@@ -1,4 +1,3 @@
-const token = localStorage.getItem("token");
 async function sendData() {
   try {
     const response = await fetch(
@@ -16,17 +15,6 @@ async function sendData() {
   } catch (error) {
     console.log(error);
   }
-}
-
-async function getUser() {
-  const user = document.getElementById("username");
-  const response = await fetch("http://localhost:1337/api/users/me", {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}` },
-    redirect: "follow",
-  });
-  const userName = await response.json();
-  user.textContent = userName.username;
 }
 
 function printData(data) {
@@ -63,26 +51,15 @@ function printData(data) {
     lista.appendChild(serieBox);
   }
 }
-function doLogout() {
-  localStorage.clear();
-  redirect("index.html");
-}
-function changeAccesButton() {
-  const logout = document.getElementById("cerrarsesion");
-  logout.textContent = "Cerrar sesión";
-  logout.addEventListener(`click`, (e) => {
-    doLogout();
-  });
-}
 
 function redirect(url) {
   window.location.href = url;
 }
 
-sendData();
-if (token) {
-  getUser();
-} else {
-  redirect("index.html");
+let token = localStorage.getItem('token');
+
+if (!token) {
+  window.location.href = 'index.html';
 }
-changeAccesButton();
+
+sendData();
