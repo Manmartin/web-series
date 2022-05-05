@@ -21,6 +21,10 @@ function printData(data) {
   const lista = document.getElementById("lista");
 
   for (const seriesData of data) {
+    const link = document.createElement('a');
+
+    link.href = `threads.html?id=${seriesData.id}`;
+    link.classList.add('link-serie');
     const serieBox = document.createElement("div");
     serieBox.classList.add("card");
 
@@ -52,7 +56,8 @@ function printData(data) {
     serieBox.appendChild(serieAirDating);
     serieBox.appendChild(serieRating);
 
-    lista.appendChild(serieBox);
+    link.append(serieBox);
+    lista.appendChild(link);
   }
 }
 
@@ -63,7 +68,7 @@ function redirect(url) {
 let token = localStorage.getItem('token');
 
 if (!token) {
-  window.location.href = 'index.html';
+  window.location.href = 'login.html';
 }
 
 sendData();

@@ -72,3 +72,8 @@ h2{
     display:flex;
     flex-wrap: wrap;
 }
+
+.link-serie {
+    text-decoration: none;
+    color: black;
+}
