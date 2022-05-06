@@ -1,8 +1,3 @@
-/*
-* {
-}
-*/
-
 .center {
     margin: auto;
     width: 50%;
@@ -13,65 +8,83 @@
     text-align: center;
 }
 
-.background{
-     
+.background {
+
     background-image: url(../images/mainpage.jpg);
     background-size: cover;
-    
+
 }
 
-.carousel{
+.carousel {
     width: 20%;
     margin: auto;
-    height:auto;
-   
+    height: auto;
+
 }
 
-.bt-search{
+.bt-search {
     padding-top: 1%;
     padding-bottom: 5%;
     margin-left: auto;
     margin-right: auto;
-    width:200px;
+    width: 200px;
     position: relative;
 }
+
 .logo {
     width: 84px;
     height: auto;
     display: inline-block;
 }
 
-h2{
+h2 {
     text-align: center;
 }
 
 /*aboutus.html*/
-.tittle_about{
+.tittle_about {
     text-align: center;
 }
-.about{
+
+.about {
     text-align: center;
 }
-.box_about{
+
+.box_about {
     flex-wrap: wrap;
 }
 
 /*series.html*/
-.serieBox img{
+.serieBox img {
     height: 200px;
     width: 200px;
 }
 
-.card{
+.card {
     width: auto;
     text-align: center;
 }
-#lista{
-    display:flex;
+
+#lista {
+    display: flex;
     flex-wrap: wrap;
 }
 
 .link-serie {
     text-decoration: none;
     color: black;
+}
+
+/*normasdeuso.html*/
+.normastittle {
+    text-align: center;
+}
+
+.foro {
+    text-align: center;
+}
+
+.listanormas {
+    text-align: center;
+
 }
