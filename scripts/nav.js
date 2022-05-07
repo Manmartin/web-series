@@ -18,7 +18,7 @@ function changeAccesButton() {
   }
 
 function doLogout() {
-    localStorage.removeItem("token");
+    localStorage.clear();
     window.location.href = "index.html";
 }
 

@@ -21,6 +21,7 @@ async function sendData(form) {
 
 function doLogin(data) {
     localStorage.setItem("token", data.jwt);
+    localStorage.setItem("userID", data.user.id);
     window.location.href = "series.html"
 }
 
