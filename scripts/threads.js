@@ -9,27 +9,27 @@ form.addEventListener('submit', (e) => {
 async function sendData(form) {
     try {
         const formData = new FormData(form);
-        const data = {}
-        var queryString = new URLSearchParams(formData).toString()
-        queryString += `&serie=${serieID}&users_permissions_user=${localStorage.getItem('userID')}`;
+        const data = {"data": {}}
+        var queryString = new URLSearchParams(formData)
 
-        data.data = JSON.parse('{"' + decodeURI(queryString).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
+        data.data.name = queryString.get('name');
+        data.data.content = queryString.get('content');
+        data.data.serie = serieID;
+        data.data.users_permissions_user = localStorage.getItem('userID');
+
         await makeRequest('http://localhost:1337/api/threads', 'POST', JSON.stringify(data),  {"Content-Type" : "application/json" ,"Authorization": `Bearer ${userToken}`}, putThread);
     } catch (error) {
         console.log(error)
     }
 }
 
-const user = localStorage.getItem('token');
-if (!user) {
-    window.location.href = 'login.html';
-}
+
 
 function putThread(data) {
     const thread = data.data.attributes;
-    
+
     const link = document.createElement('a');
-    link.href = `comments.html?id=${thread.id}`;
+    link.href = `comments.html?id=${data.data.id}`;
     const name = document.createElement('h2');
     name.innerText = thread.name;
     const content = document.createElement('h2');
@@ -59,7 +59,7 @@ function printData(data) {
 
 const serieID = (new URLSearchParams(window.location.search)).get('id');
 if (serieID) {
-    await makeRequest(`http://localhost:1337/api/series/${serieID}?populate=threads`, 'GET', null, {Authorization: `Bearer ${user}`}, printData);
+    await makeRequest(`http://localhost:1337/api/series/${serieID}?populate=threads`, 'GET', null, {Authorization: `Bearer ${userToken}`}, printData);
 } else {
     window.location.href = 'index.html';
 }

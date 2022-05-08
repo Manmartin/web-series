@@ -1,13 +1,33 @@
 import { makeRequest } from "./requests.js";
 
-const user = localStorage.getItem('token');
-if (!user) {
-    window.location.href = 'login.html';
+
+const form = document.getElementById("comment-form")
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    sendData(form)
+})
+
+async function sendData(form) {
+    try {
+        const formData = new FormData(form);
+        const data = {"data": {}}
+        var queryString = new URLSearchParams(formData)
+
+        data.data.content = queryString.get('content');
+        data.data.thread = threadID;
+        data.data.users_permissions_user = localStorage.getItem('userID');
+
+        await makeRequest('http://localhost:1337/api/comments', 'POST', JSON.stringify(data),  {"Content-Type" : "application/json" ,"Authorization": `Bearer ${userToken}`}, putComment);
+    } catch (error) {
+        console.log(error)
+    }
 }
 
-const threadID = (new URLSearchParams(window.location.search)).get('id');
-if (threadID) {
-    await makeRequest(`http://localhost:1337/api/threads/${threadID}?populate=comments`, 'GET', null, {Authorization: `Bearer ${user}`}, printData);
+function putComment(data) {
+    const comment = data.data.attributes;
+    const text = document.createElement('h3');
+    text.innerText = comment.content;
+    document.body.appendChild(text);
 }
 
 function printData(data) {
@@ -26,5 +46,17 @@ function printData(data) {
         text.innerText = comment.attributes.content;
         document.body.appendChild(text);
     }
-    console.log(data);
+}
+
+
+const user = localStorage.getItem('token');
+if (!user) {
+    window.location.href = 'login.html';
+}
+
+const threadID = (new URLSearchParams(window.location.search)).get('id');
+if (threadID) {
+    await makeRequest(`http://localhost:1337/api/threads/${threadID}?populate=comments`, 'GET', null, {Authorization: `Bearer ${user}`}, printData);
+} else {
+    window.location.href = 'index.html';
 }
