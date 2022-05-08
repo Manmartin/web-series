@@ -1,20 +1,32 @@
 import { makeRequest } from "./requests.js";
 
 function printData(data) {
-    console.log(data);
-    return;
-    let threads = data.data.attributes.threads.data;
+    let threads = data.threads;
+    threads = threads.sort((a, b) => a.serie.name.localeCompare(b.serie.name));
+
+    let serieName = '';
+    let div = '';
     for (const thread of threads) {
+        if (thread.serie.name !== serieName) {
+            serieName = thread.serie.name;
+            const title = document.createElement('h1');
+            title.innerText = serieName
+            div = document.createElement('div');
+            div.appendChild(title);
+            document.body.append(div);
+        }
         const link = document.createElement('a');
         link.href = `comments.html?id=${thread.id}`;
-        const name = document.createElement('h2');
-        name.innerText = thread.attributes.name;
-        const content = document.createElement('h2');
-        content.innerText = thread.attributes.content;
-    
+        const name = document.createElement('h3');
+        name.innerText = thread.name;
+        const content = document.createElement('h4');
+        content.innerText = thread.content;
+        
+        const br = document.createElement('br');
         link.appendChild(name);
         link.appendChild(content);
-        document.body.appendChild(link);
+        div.appendChild(link);
+        div.appendChild(br);
     }
 }
 
