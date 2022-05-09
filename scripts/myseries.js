@@ -1,11 +1,11 @@
 import { makeRequest } from "./requests.js";
 
 function printData(data) {
-    let threads = data.threads;
-    threads = threads.sort((a, b) => a.serie.name.localeCompare(b.serie.name));
+    let series = data.series;
+    series = series.sort((a, b) => a.localeCompare(b));
+    console.log(series);
 
-    let serieName = '';
-    let div = '';
+/*
     for (const thread of threads) {
         if (thread.serie.name !== serieName) {
             serieName = thread.serie.name;
@@ -28,6 +28,7 @@ function printData(data) {
         div.appendChild(link);
         div.appendChild(br);
     }
+    */
 }
 
 const userToken = localStorage.getItem('token');
