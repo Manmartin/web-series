@@ -6,7 +6,6 @@ async function sendData() {
 
     if (!response.ok) {
       const message = `Error: ${response.status}`;
-
       throw new Error(message);
     }
 
@@ -20,44 +19,34 @@ async function sendData() {
 function printData(data) {
   const lista = document.getElementById("lista");
 
+  let counter = 0;
+  let container = document.createElement('div');
+  let row = document.createElement('div');
   for (const seriesData of data) {
-    const link = document.createElement('a');
+    if (counter % 3 == 0) {
+      lista.appendChild(container);
+      container.classList.add('container');
+      row.classList.add('row');
+      container.appendChild(row);
+    }
 
-    link.href = `threads.html?id=${seriesData.id}`;
-    link.classList.add('link-serie');
-    const serieBox = document.createElement("div");
-    serieBox.classList.add("card");
-
-    serieBox.classList.add("serieBox");
-
-    const serieName = document.createElement("h4");
-    serieName.classList.add("card-title");
-    const serieImg = document.createElement("img");
-    serieImg.classList.add("card-img-top");
-    const serieAirDating = document.createElement("p");
-    serieAirDating.classList.add("card-text");
-    const serieRating = document.createElement("p");
-    serieRating.classList.add("card-text");
-
-    serieName.textContent = seriesData.attributes.name;
-    serieImg.src =
-      "http://localhost:1337" + seriesData.attributes.image.data.attributes.url;
-    serieAirDating.textContent =
-      "" +
-      seriesData.attributes.air_date +
-      "-" +
-      (seriesData.attributes.finished
-        ? seriesData.attributes.end_date
-        : "Presente");
-    serieRating.textContent = seriesData.attributes.rating + "/10";
-    console.log();
-    serieBox.appendChild(serieName);
-    serieBox.appendChild(serieImg);
-    serieBox.appendChild(serieAirDating);
-    serieBox.appendChild(serieRating);
-
-    link.append(serieBox);
-    lista.appendChild(link);
+    const div = document.createElement('div');
+    div.classList.add("col-lg-4");
+    div.classList.add("mb-4");
+    div.innerHTML = `
+    <div class="card">
+      <img src="${"http://localhost:1337" + seriesData.attributes.image.data.attributes.url}" alt="" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">${seriesData.attributes.name}</h5>
+        <p class="card-text">${seriesData.attributes.air_date}-${seriesData.attributes.finished ? seriesData.attributes.end_date :"Presente"}<span class=""></span></p>
+        <p class="card-text">${seriesData.attributes.resume}</p>
+        <a href="threads.html?id=${seriesData.id}" class="btn btn-outline-success btn-sm">Lee los hilos</a>
+        <button href="" class="btn btn-outline-warning btn-sm">&#11088;</button>
+      </div>
+    </div>
+    `
+    row.appendChild(div);
+    counter++;
   }
 }
 
