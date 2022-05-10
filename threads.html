@@ -21,6 +21,26 @@
 <body>
   <nav  id='user-nav' class="navbar navbar-expand-lg navbar-light bg-light"></nav>
 
+  <section>
+    <div  class="accordion" id="accordionExample"></div>
+  </section>
+
+  <div style="height: 5em;width: 100%;"></div>
+<form id="post-form">
+  <h5>Crea tu hilo</h5>
+  <div class="mb-3">
+    <label for="input1" class="form-label">Título</label>
+    <input name="name" type="text" class="form-control" id="input1" placeholder="Escribe el título aquí">
+  </div>
+  <div class="mb-3">
+    <label for="input2" class="form-label">Descripcion</label>
+    <textarea name='content' class="form-control" id="input2" rows="3"></textarea>
+  </div>
+  <input type="submit" id="login" value="Publicar">
+</form>
+
+
+  <!--
     <div>
       <h2>Crea un hilo</h2>
       <form id="post-form">
@@ -31,9 +51,9 @@
         <br>
         <textarea name="content" cols="30" rows="10" required></textarea>
         <br>
-        <input type="submit" id="login" value="Publicar">
+        
       </div>
-
+-->
     <footer id="footer" class="text-center text-lg-start bg-light text-muted">
     </footer>
     <script src="scripts/threads.js" type="module"></script>
