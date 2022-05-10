@@ -48,10 +48,22 @@ h2 {
 
 .about {
     text-align: center;
+    text-justify: inter-word;
 }
 
-.box_about {
-    flex-wrap: wrap;
+.card-img-top {
+    width: auto;
+    height: 250px;
+}
+
+
+
+.justify-content-between {
+    padding-top: 3%;
+    padding-bottom: 5%;
+    padding-left: 25%;
+    padding-right: 25%;
+    text-align: center;
 }
 
 /*series.html*/
@@ -60,9 +72,13 @@ h2 {
     width: 200px;
 }
 
-.card {
+.history {
     width: auto;
     text-align: center;
+    text-justify: inter-word;
+
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 #lista {
@@ -84,7 +100,7 @@ h2 {
     text-align: center;
 }
 
-.listanormas {
+.list-group-item {
     text-align: center;
-
+    text-justify: inter-word;
 }
