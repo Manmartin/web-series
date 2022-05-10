@@ -11,12 +11,12 @@
 .background {
 
     background-image: url(../images/mainpage.jpg);
-    background-size: cover;
+    background-size: 100%;
 
 }
 
 .carousel {
-    width: 20%;
+    width: max-content;
     margin: auto;
     height: auto;
 
@@ -55,6 +55,7 @@ h2 {
     width: auto;
     height: 250px;
 }
+
 
 
 
