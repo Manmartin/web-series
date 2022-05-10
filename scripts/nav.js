@@ -137,7 +137,7 @@ changeAccesButton();
 }
 
 const footer = document.getElementById("footer");
-footer.classList.add('fixed-bottom');
+//footer.classList.add('fixed-bottom');
 footer.innerHTML = `
 <section class="">
 <div class="container text-center text-md-start mt-5 ">

@@ -38,7 +38,8 @@ function printData(data) {
       <img src="${"http://localhost:1337" + seriesData.attributes.image.data.attributes.url}" alt="" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">${seriesData.attributes.name}</h5>
-        <p class="card-text">${seriesData.attributes.air_date}-${seriesData.attributes.finished ? seriesData.attributes.end_date :"Presente"}<span class=""></span></p>
+        <p  class="card-text pr-4">${seriesData.attributes.air_date}-${seriesData.attributes.finished ? seriesData.attributes.end_date :"Presente"}
+        <span class="text-secondary">${seriesData.attributes.rating}/10</span></p>
         <p class="card-text">${seriesData.attributes.resume}</p>
         <a href="threads.html?id=${seriesData.id}" class="btn btn-outline-success btn-sm">Lee los hilos</a>
         <button href="" class="btn btn-outline-warning btn-sm">&#11088;</button>
