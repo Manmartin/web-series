@@ -55,12 +55,6 @@ if (!userToken) {
         </li>
       </ul>
       <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Buscar"
-          aria-label="Search"
-        />
         <a href="login.html" class="btn btn-outline-success" type="submit">
           Accede
         </a>
@@ -72,7 +66,7 @@ if (!userToken) {
   </div>
 `
 } else {
-  const userID = localStorage.getItem('userID');
+
   nav.innerHTML = `
   <div class="container-fluid">
   <div class="box-logo">
@@ -100,13 +94,6 @@ if (!userToken) {
       </li>
     </ul>
     <form class="d-flex">
-      <input
-        class="form-control me-2"
-        type="search"
-        placeholder="Buscar"
-        aria-label="Search"
-      />
-    </form>
 
     <div class="nav-item dropdown">
       <a
