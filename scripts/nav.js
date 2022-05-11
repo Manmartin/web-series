@@ -1,32 +1,32 @@
 async function getUser() {
-    const user = document.getElementById("username");
-    const response = await fetch("http://localhost:1337/api/users/me", {
-      method: "GET",
-      headers: { Authorization: `Bearer ${userToken}`},
-      redirect: "follow",
-    });
-    const userName = await response.json();
-    user.textContent = userName.username;
+  const user = document.getElementById("username");
+  const response = await fetch("http://localhost:1337/api/users/me", {
+    method: "GET",
+    headers: { Authorization: `Bearer ${userToken}` },
+    redirect: "follow",
+  });
+  const userName = await response.json();
+  user.textContent = userName.username;
 }
 
 function changeAccesButton() {
-    const logout = document.getElementById("cerrarsesion");
-    logout.textContent = "Cerrar sesión";
-    logout.addEventListener(`click`, (e) => {
-      doLogout();
-    });
-  }
+  const logout = document.getElementById("cerrarsesion");
+  logout.textContent = "Cerrar sesión";
+  logout.addEventListener(`click`, (e) => {
+    doLogout();
+  });
+}
 
 function doLogout() {
-    localStorage.clear();
-    window.location.href = "index.html";
+  localStorage.clear();
+  window.location.href = "index.html";
 }
 
 const nav = document.getElementById("user-nav");
-let userToken = localStorage.getItem('token');
+let userToken = localStorage.getItem("token");
 
 if (!userToken) {
-    nav.innerHTML = `
+  nav.innerHTML = `
     <div class="container-fluid">
     <div class="box-logo">
       <a href="/">
@@ -64,9 +64,8 @@ if (!userToken) {
       </form>
     </div>
   </div>
-`
+`;
 } else {
-
   nav.innerHTML = `
   <div class="container-fluid">
   <div class="box-logo">
@@ -86,7 +85,7 @@ if (!userToken) {
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav ">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="index.html"
           >Inicio</a
@@ -118,9 +117,9 @@ if (!userToken) {
     </div>
   </div>
 </div>
-`
-getUser();
-changeAccesButton();
+`;
+  getUser();
+  changeAccesButton();
 }
 
 const footer = document.getElementById("footer");
@@ -165,4 +164,4 @@ style="background-color: rgba(0, 0, 0, 0.05)"
 >
 Series Manta 2022 by: Manuel Martin y Tatiana Arteaga
 </div>
-`
+`;
