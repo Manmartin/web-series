@@ -67,9 +67,7 @@ input[type="email"] {
   border: 1px solid #c2c0ca;
   font-style: normal;
   font-size: 16px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   position: relative;
   display: inline-block;
   background: none;
@@ -100,8 +98,7 @@ input[type="email"]:valid ~ .validation span:first-child {
   left: 14px;
   width: 20px;
   height: 3px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 input[type="text"]:valid ~ .validation span:last-child,
 input[type="email"]:valid ~ .validation span:last-child {
@@ -109,7 +106,7 @@ input[type="email"]:valid ~ .validation span:last-child {
   left: 8px;
   width: 11px;
   height: 3px;
-  -webkit-transform: rotate(45deg);
+
           transform: rotate(45deg);
 }
 
@@ -131,7 +128,6 @@ input[type="submit"] {
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   font-size: 18px;
   position: relative;
@@ -141,7 +137,6 @@ input[type="submit"] {
 }
 input[type="submit"]:hover {
   background-color: #329dd5;
-  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
