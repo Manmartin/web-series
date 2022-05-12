@@ -46,8 +46,10 @@ function printData(data) {
   title.innerText = thread.name;
   const content = document.createElement("p");
   content.innerText = thread.content;
+  const hr = document.createElement('hr');
   div.appendChild(title);
   div.appendChild(content);
+  div.appendChild(hr);
 
   const comments = data.data.attributes.comments.data;
   for (const comment of comments) {
