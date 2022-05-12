@@ -1,32 +1,39 @@
 import { makeRequest } from "./requests.js";
 
+
 function printData(data) {
     let threads = data.threads;
     threads = threads.sort((a, b) => a.serie.name.localeCompare(b.serie.name));
 
+    let count = 0;
     let serieName = '';
     let div = '';
+    const lista = document.getElementById('accordionExample');
     for (const thread of threads) {
         if (thread.serie.name !== serieName) {
             serieName = thread.serie.name;
             const title = document.createElement('h1');
-            title.innerText = serieName
+            title.innerText = serieName;
             div = document.createElement('div');
             div.appendChild(title);
-            document.body.append(div);
+            lista.append(div);
         }
-        const link = document.createElement('a');
-        link.href = `comments.html?id=${thread.id}`;
-        const name = document.createElement('h3');
-        name.innerText = thread.name;
-        const content = document.createElement('h4');
-        content.innerText = thread.content;
-        
-        const br = document.createElement('br');
-        link.appendChild(name);
-        link.appendChild(content);
-        div.appendChild(link);
-        div.appendChild(br);
+        const hilo = document.createElement('div');
+        hilo.classList.add("accordion-item");
+        hilo.innerHTML = `
+        <h2 class="accordion-header" id="heading${count}">
+          <button style="text-transform: capitalize;" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">
+            ${thread.name}
+          </button>
+        </h2>
+        <div id="collapse${count}" class="accordion-collapse collapse${ count === 0 ? 'show' : " "}" aria-labelledby="heading${count}" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+          <a href="comments.html?id=${thread.id}">${thread.content}</a>
+          </div>
+        </div>
+      `
+        div.appendChild(hilo);
+        count++;
     }
 }
 
