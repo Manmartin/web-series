@@ -10,7 +10,6 @@ function printData(data) {
     let div = '';
     const lista = document.getElementById('accordionExample');
     for (const thread of threads) {
-        console.log(thread);
         if (thread.serie.name !== serieName) {
             serieName = thread.serie.name;
             const title = document.createElement('h1');
