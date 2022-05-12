@@ -91,6 +91,11 @@ if (!userToken) {
           >Inicio</a
         >
       </li>
+      <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="series.html"
+        >Series</a
+      >
+      </li>
     </ul>
     <form class="d-flex">
 
