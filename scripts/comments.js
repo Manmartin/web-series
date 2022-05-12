@@ -33,7 +33,7 @@ async function sendData(form) {
 
 function putComment(data) {
   const comment = data.data.attributes;
-  const text = document.createElement("h3");
+  const text = document.createElement("p");
   const div = document.getElementById("espacio");
   text.innerText = comment.content;
   div.appendChild(text);
