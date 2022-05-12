@@ -82,5 +82,5 @@ const userToken = localStorage.getItem('token');
 if (userToken) {
     await makeRequest(`http://localhost:1337/api/users/me`, 'GET', null, {Authorization: `Bearer ${userToken}`}, printData);
 } else {
-    window.location.href = 'index.html';
+    window.location.href = "login.html";
 }

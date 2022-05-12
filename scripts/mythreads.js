@@ -48,5 +48,5 @@ if (userToken) {
     printData
   );
 } else {
-  window.location.href = "index.html";
+  window.location.href = "login.html";
 }

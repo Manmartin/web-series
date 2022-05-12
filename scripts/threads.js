@@ -119,5 +119,5 @@ if (serieID) {
     printData
   );
 } else {
-  window.location.href = "index.html";
+  window.location.href = "login.html";
 }
