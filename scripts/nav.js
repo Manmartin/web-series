@@ -110,8 +110,8 @@ if (!userToken) {
       >
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="myseries.html">Tus series</a></li>
-        <li><a class="dropdown-item" href="mythreads.html">Tus hilos</a></li>
+        <li><a class="dropdown-item" href="myseries.html">Mis series</a></li>
+        <li><a class="dropdown-item" href="mythreads.html">Mis hilos</a></li>
         <li><hr class="dropdown-divider" /></li>
         <li>
           <span id="cerrarsesion" class="dropdown-item"
