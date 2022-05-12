@@ -24,26 +24,36 @@
       class="navbar navbar-expand-lg navbar-light bg-light"
     ></nav>
 
+    <section>
+      <div class="accordion" id="accordionExample"></div>
+    </section>
+
     <div style="height: 5em; width: 100%"></div>
     <form id="post-form">
       <h5>Crea tu hilo</h5>
       <div class="mb-3">
-        <label for="input1" class="form-label">Título</label>
+        <label for="input1" class="form-label" style="margin-left: 2%"
+          >Título</label
+        >
         <input
           name="name"
           type="text"
           class="form-control"
           id="input1"
           placeholder="Escribe el título aquí"
+          style="margin-left: 2%"
         />
       </div>
       <div class="mb-3">
-        <label for="input2" class="form-label">Descripcion</label>
+        <label for="input2" class="form-label" style="margin-left: 2%"
+          >Descripcion</label
+        >
         <textarea
           name="content"
           class="form-control"
           id="input2"
           rows="3"
+          style="margin-left: 2%"
         ></textarea>
       </div>
       <input
@@ -51,11 +61,9 @@
         id="login"
         class="btn btn-primary"
         value="Publicar"
+        style="margin-left: 2%"
       />
     </form>
-    <section>
-      <div class="accordion" id="accordionExample"></div>
-    </section>
     <footer
       id="footer"
       class="fixed-bottom text-center text-lg-start bg-light text-muted"

@@ -42,16 +42,16 @@ function putComment(data) {
 function printData(data) {
   let thread = data.data.attributes;
   const div = document.getElementById("espacio");
-  const title = document.createElement("h2");
+  const title = document.createElement("h4");
   title.innerText = thread.name;
-  const content = document.createElement("h2");
+  const content = document.createElement("p");
   content.innerText = thread.content;
   div.appendChild(title);
   div.appendChild(content);
 
   const comments = data.data.attributes.comments.data;
   for (const comment of comments) {
-    const text = document.createElement("h3");
+    const text = document.createElement("p");
     text.innerText = comment.attributes.content;
     div.appendChild(text);
   }
