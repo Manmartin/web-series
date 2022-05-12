@@ -42,7 +42,7 @@ function putComment(data) {
 function printData(data) {
   let thread = data.data.attributes;
   const div = document.getElementById("espacio");
-  const title = document.createElement("h4");
+  const title = document.createElement("p");
   title.innerText = thread.name;
   const content = document.createElement("p");
   content.innerText = thread.content;
